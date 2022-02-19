@@ -17,13 +17,19 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
+    //@Bean memberService -> new MemoryMemberRepository()
+    //@Bean orderService -> new MemoryMemberRepository()
+    //2가지 Bean에서 new로 MemoryMemberRepository를 생성해 준다, 과연 싱글톤으로 생성 될까??
+
     @Bean
     public MemberService memberService(){
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository()); //구체적인 클래스를 생성할때 알수 있다
     }
 
     @Bean
     public OrderService orderService(){
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
@@ -32,6 +38,7 @@ public class AppConfig {
         //역할
         //메소드 명을 본 순간 역할이 다 드러나는 장점이 있다
         //후에 구현체를 갈아 끼울때 해당 코드만 변경하면 된다
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
