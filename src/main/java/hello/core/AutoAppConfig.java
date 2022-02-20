@@ -21,5 +21,6 @@ public class AutoAppConfig {
         //자동 빈 등록과 수동 빈 등록과 충돌이 날경우 수동 빈 등록이 우선순위를 가진다
         return new MemoryMemberRepository();
     }
+
     
 }
