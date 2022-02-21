@@ -32,4 +32,10 @@ public class OrderServiceTest {
         Order order = orderService.createOrder(memberId, "itemA", 10000);
         Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
     }
+
+    /*@Test
+    public void findInjectionTest(){
+        OrderServiceImpl orderService = new OrderServiceImpl(); //순수한 자바코드로의 테스트가 안된다
+        orderService.createOrder(1L, "itemA", 1000);
+    }*/
 }
